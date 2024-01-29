@@ -58,7 +58,7 @@ class Login(Resource):
         user = User.query.filter(User.username == username).first()
         if user:
             session['user_id'] = user.id
-            return jsonify(user.to_dict()), 200
+            return user.to_dict(), 200
         else:
             return {'message': 'User not found'}, 404
         
